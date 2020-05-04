@@ -73,8 +73,7 @@ var number1 = document.getElementById("number1").value;
 var number2 = document.getElementById("number2").value;	
 var result = "0";
 	if(number1 == 0 && number2 == 0){
-		result = 0;
-		document.getElementById("result").innerHTML = result;
+		document.getElementById("result").innerHTML ="undefined";
 	}else if(number2 == 0){
 		document.getElementById("result").innerHTML = "undefined";
 	}else {
