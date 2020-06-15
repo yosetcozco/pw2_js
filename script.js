@@ -1,12 +1,10 @@
 function query1(name){
-  var url = 'cgi-bin/actorsName.py?name='+name;
-  console.log(url);
+  var url = '../web_programming/cgi-bin/actorsName.py?name='+name;
   ajax(url, render)
 }
 function render(data){
-  console.log(data)
-  //TODO: how about empty data?
-  var table = "<table id='answere1'>";
+//TODO: how about empty data?
+  var table = "<table id='table1'>";
   var row = data[0];
   table += '<tr>';
   for(key in row){
@@ -26,15 +24,15 @@ function render(data){
     table += '</tr>';
   }
   table += "</table>";
-  console.log(table)
-  document.getElementById("answere1").innerHTML = table;
+  document.getElementById("answer1").innerHTML = table;
 }
 function ajax(url, callback){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      json = JSON.parse(this.responseText);
-      callback(json);
+      var cmn_data = this.responseText;
+      console.log(cmn_data);
+      callback(cmn_data);
     }
   };
   xhttp.open("GET", url, true);
